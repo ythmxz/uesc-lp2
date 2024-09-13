@@ -48,7 +48,7 @@ int main() {
 
 }
 
-// Definição da função que define o maior valor.
+// Definição da função.
 int find_max(int *pvetor, int tamanhoVetor) {
 
 // Inicialização das variáveis.
