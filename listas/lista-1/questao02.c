@@ -23,18 +23,47 @@ ponteiros;
 
 #include <stdio.h>
 
-void in_arr();
-void out_arr();
+void in_arr(int *pvetor, int tamanhoVetor);
+void out_arr(int *pvetor, int tamanhoVetor);
 
 int main() {
 
-	int n;
-	int array[n];
+	int tamanhoVetor;
+
+	printf("\nInforme o tamanho do vetor: ");
+	scanf("%d", &tamanhoVetor);
+
+	int vetor[tamanhoVetor];
+
+	in_arr(vetor, tamanhoVetor);
+	out_arr(vetor, tamanhoVetor);
 
 	return 0;
 
 }
 
-void in_arr() {}
+void in_arr(int *pvetor, int tamanhoVetor) {
 
-void out_arr() {}
+	int indice;
+
+	for ( indice = 0; indice < tamanhoVetor; indice += 1 ) {
+
+		printf("\nInforme o elemento %d do vetor: ", indice);
+		scanf("%d", pvetor + indice);
+
+	}
+
+}
+
+void out_arr(int *pvetor, int tamanhoVetor) {
+
+	int indice;
+
+	printf("\nEste é o vetor criado:\n");
+
+	for ( indice = 0; indice < tamanhoVetor; indice += 1 )
+		printf("\nVetor[%d] = %d", indice, *(pvetor + indice));
+
+	printf("\n");
+
+}
