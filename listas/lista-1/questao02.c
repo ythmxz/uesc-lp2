@@ -23,18 +23,23 @@ ponteiros;
 
 #include <stdio.h>
 
+// Declaração das funções.
 void in_arr(int *pvetor, int tamanhoVetor);
 void out_arr(int *pvetor, int tamanhoVetor);
 
 int main() {
 
+// Inicializa a variável que determina o tamanho do vetor.
 	int tamanhoVetor;
 
+// Recebe o tamanho do usuário.
 	printf("\nInforme o tamanho do vetor: ");
 	scanf("%d", &tamanhoVetor);
 
+// Inicializa o vetor com o tamanho definido.
 	int vetor[tamanhoVetor];
 
+// Chama as funções que preenchem e mostram o vetor, respectivamente.
 	in_arr(vetor, tamanhoVetor);
 	out_arr(vetor, tamanhoVetor);
 
@@ -42,12 +47,15 @@ int main() {
 
 }
 
+// Definição da função de preenchimento do vetor.
 void in_arr(int *pvetor, int tamanhoVetor) {
 
+// Inicializa a variável que controlará o loop.
 	int indice;
 
 	for ( indice = 0; indice < tamanhoVetor; indice += 1 ) {
 
+// Os índices do vetor serão preenchidos pelo usuário até o tamanho do vetor.
 		printf("\nInforme o elemento %d do vetor: ", indice);
 		scanf("%d", pvetor + indice);
 
@@ -55,12 +63,15 @@ void in_arr(int *pvetor, int tamanhoVetor) {
 
 }
 
+// Definição da função de exibição do vetor.
 void out_arr(int *pvetor, int tamanhoVetor) {
 
+// Inicializa a variável que controlará o loop.
 	int indice;
 
 	printf("\nEste é o vetor criado:\n");
 
+// Os índices do vetor serão apresentados com seus valores, até o tamanho do vetor.
 	for ( indice = 0; indice < tamanhoVetor; indice += 1 )
 		printf("\nVetor[%d] = %d", indice, *(pvetor + indice));
 

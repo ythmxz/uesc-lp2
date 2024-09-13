@@ -31,23 +31,23 @@ int main() {
 
 	printf("\nTROCA DE VALORES\n");
 
-// Coletar o valor A do usuário.
+// Coleta o valor A do usuário.
 	printf("\nDigite o Valor A: ");
 	scanf("%d", &valorA);
 
-// Coletar o valor B do usuário.
+// Coleta o valor B do usuário.
 	printf("\nDigite o Valor B: ");
 	scanf("%d", &valorB);
 
-// Apresentar os valores antes da troca.
+// Apresenta os valores antes da troca.
 	printf("\nValor A = %d \nValor B = %d\n", valorA, valorB);
 	printf("\nPonteiro A = %p \nPonteiro B = %p\n", pvalorA, pvalorB);
 
-// Chamar a função de troca de valores.
+// Chama a função de troca de valores.
 	printf("\nTrocando os valores...\n");
 	swap(pvalorA, pvalorB);
 
-// Apresentar os valores após da troca.
+// Apresenta os valores após da troca.
 	printf("\nValor A = %d \nValor B = %d\n", valorA, valorB);
 	printf("\nPonteiro A = %p \nPonteiro B = %p\n", pvalorA, pvalorB);
 
