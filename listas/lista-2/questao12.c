@@ -39,6 +39,9 @@ void inverter(char *ptexto) {
 	int i, temp;
 	int tamanhoTexto;
 
+	i = 0;
+
+
 	while ( *(ptexto + i) != '\0' ) {
 
 		tamanhoTexto++;
@@ -60,7 +63,7 @@ void inverter(char *ptexto) {
 
 	i = tamanhoTexto;
 
-	while ( i > ((tamanhoTexto / 2)) ) {
+	while ( i > (tamanhoTexto / 2) ) {
 
 		temp = *(ptexto + i);
 		*(ptexto + i) = *(ptexto + ((tamanhoTexto / 2) - i - 1));
