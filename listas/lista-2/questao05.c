@@ -49,7 +49,7 @@ REPETIR_OPCAO:
 
 // A temperatura é recebida pelo scanf().
 	printf("\nInsira a temperatura: ");
-	scanf("%lf", &temperatura);
+	scanf("%lf", ptemperatura);
 
 /*
 Dependendo da opção escolhida pelo usuário, será chamada a respectiva função

@@ -22,12 +22,12 @@ int str_length(char *pstring);
 int main() {
 
 // Inicialização das variáveis.
-	char string[50];
+	char string[51];
 	int tamanhoString;
 
 // Coleta a string do usuário.
-	printf("\nEscreva um texto de até 49 caracteres:\n\n");
-	scanf("%49[^\n]%*c", string);
+	printf("\nEscreva um texto de até 50 caracteres:\n\n");
+	scanf("%50[^\n]%*c", string);
 
 // Chama a função que obtém o tamanho da string.
 	tamanhoString = str_length(string);
