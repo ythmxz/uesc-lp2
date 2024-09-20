@@ -11,17 +11,26 @@ Escreva um programa que converta temperaturas entre Celsius e Fahrenheit usando 
 
 #include <stdio.h>
 
+// Declaração das funções.
 void celsius(double *ptemperatura, double *presultado);
 void fahrenheit(double *ptemperatura, double *presultado);
 
 int main() {
 
+// Inicialização e Atribuição das variáveis.
 	int opcao = 0;
 	double temperatura = 0.00;
 	double resultado = 0.00;
+
+// Inicialização e atribuição dos ponteiros.
 	double *ptemperatura = &temperatura;
 	double *presultado = & resultado;
 
+/*
+O tipo de conversão é recebido pelo scanf() e, caso o valor esteja fora das
+opções possíveis, o código irá para o ponto REPETIR_OPCAO, até o usuário
+entrar com um valor aceitável.
+*/
 	printf("\nSelecione a conversão:\n");
 	printf("\n1 - °C -> °F\n2 - °F -> °C\n");
 
@@ -38,9 +47,14 @@ REPETIR_OPCAO:
 
 	}
 
+// A temperatura é recebida pelo scanf().
 	printf("\nInsira a temperatura: ");
 	scanf("%lf", &temperatura);
 
+/*
+Dependendo da opção escolhida pelo usuário, será chamada a respectiva função
+e apresentados os valores da temperatura e sua conversão.
+*/
 	switch (opcao) {
 
 	case 1:
@@ -64,6 +78,8 @@ REPETIR_OPCAO:
 	return 0;
 
 }
+
+// Definição das funções.
 
 void celsius(double *ptemperatura, double *presultado) {
 
