@@ -63,20 +63,15 @@ int main() {
 
 void mover(int *parray, int tamanhoArray, int posicoes) {
 
-	int i;
-	int arrayTemp[tamanhoArray];
+    int i;
+    int arrayTemp[tamanhoArray];
 
-	for ( i = 0; i < tamanhoArray; i++ )
-		arrayTemp[i] = *(parray + i);
+    posicoes = posicoes % tamanhoArray;
 
-    for (i = 0; i < posicoes; i++)
-        arrayTemp[i] = parray[tamanhoArray - posicoes + i];
+    for ( i = 0; i < tamanhoArray; i++ )
+        arrayTemp[i] = parray[(i + posicoes) % tamanhoArray];
 
-    for (i = posicoes; i < tamanhoArray; i++)
-        arrayTemp[i] = parray[i - posicoes];
-
-    for (i = 0; i < tamanhoArray; i++) {
+    for ( i = 0; i < tamanhoArray; i++ )
         parray[i] = arrayTemp[i];
-    }
 
 }
