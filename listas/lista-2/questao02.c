@@ -29,7 +29,7 @@ int main() {
 	for ( i = 0; i < tamanhoMatriz; i++ ) {
 
 		printf("Matriz A [%d]: ", i);
-		scanf("%d", matrizA + i);
+		scanf("%d", (matrizA + i));
 
 	}
 
@@ -40,7 +40,7 @@ int main() {
 	for ( i = 0; i < tamanhoMatriz; i++ ) {
 
 		printf("Matriz B [%d]: ", i);
-		scanf("%d", matrizB + i);
+		scanf("%d", (matrizB + i));
 
 	}
 
