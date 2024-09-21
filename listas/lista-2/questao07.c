@@ -18,21 +18,26 @@ para a direita em 2 posições, o resultado seria [4, 5, 1, 2, 3].
 
 #include <stdio.h>
 
+// Declara a função.
 void mover(int *parray, int tamanhoArray, int posicoes);
 
 int main() {
 
+// Inicializa as variáveis.
 	int i;
 	int tamanhoArray;
 	int posicoes;
 
+// Recebe o tamanho do array.
 	printf("\nInsira o tamanho do array: ");
 	scanf("%d", &tamanhoArray);
 
+// Inicializa o array com o tamanho definido.
 	int array[tamanhoArray];
 
 	printf("\n");
 
+// Preenche o array com valores recebidos.
 	for ( i = 0; i < tamanhoArray; i++ ) {
 
 		printf("Array [%d]: ", i);
@@ -42,16 +47,20 @@ int main() {
 
 	printf("\nEste foi o array criado:\n");
 
+// Apresenta o array com seus valores.
 	for ( i = 0; i < tamanhoArray; i++ )
 		printf("\nArray [%d] = %d", i, array[i]);
 
+// Recebe a quantidade de posições que o array se moverá.
 	printf("\n\nQuantas posições deseja mover? ");
 	scanf("%d", &posicoes);
 
+// Chama a função.
 	mover(array, tamanhoArray, posicoes);
 
 	printf("\nAqui está o resultado:\n");
 
+// Apresenta o array após ser movido.
 	for ( i = 0; i < tamanhoArray; i++ )
 		printf("\nArray [%d] = %d", i, array[i]);
 
@@ -61,6 +70,22 @@ int main() {
 
 }
 
+// Define a função.
+
+/*
+A função recebe o ponteiro do array, seu tamanho e aquantidade de posições
+para mover.
+
+Um array temporário é criado, para auxiliar na movimentação.
+
+Então as posições são ajustadas para um tamanho equivalente que esteja dentro
+do tamanho do array.
+
+Ex: mover um array de 5 elementos em 6 posições é equivalete a mover 1 posição.
+
+Depois o array é copiado para o array temporário com os valores movidos e
+depois são copiados para o array principal.
+*/
 void mover(int *parray, int tamanhoArray, int posicoes) {
 
     int i;
