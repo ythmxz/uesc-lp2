@@ -97,6 +97,6 @@ void soma(int *pmatrizA, int *pmatrizB, int *pmatrizC, int tamanhoMatriz) {
 	int i;
 
 	for ( i = 0; i < tamanhoMatriz; i++ )
-		*(pmatrizC + i) = *(pmatrizA + i) + *(pmatrizB + i);
+		*(pmatrizC + i) = (*(pmatrizA + i) + *(pmatrizB + i));
 
 }

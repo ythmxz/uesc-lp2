@@ -12,11 +12,6 @@ Dica: Use um ponteiro para acompanhar o aluno com o maior CR.
 
 #include <stdio.h>
 
-int main() {
-
-	int i;
-	int quantidade;
-
 	struct registro {
 
 		char nome[31];
@@ -24,6 +19,15 @@ int main() {
 		double nota;
 
 	};
+
+int maiorNota(struct registro *paluno, int quantidade);
+
+int main() {
+
+	int i;
+	int quantidade;
+	int maior;
+
 
 	printf("\nDigite a quantidade de alunos: ");
 	scanf("%d", &quantidade);
@@ -57,6 +61,35 @@ int main() {
 
 	}
 
+	maior = maiorNota(aluno, quantidade);
+
+	printf("\nO aluno com a maior nota é:\n");
+
+	printf("\nNome: %s", aluno[maior].nome);
+	printf("\nMatrícula: %d", aluno[maior].matricula);
+	printf("\nNota: %g\n", aluno[maior].nota);
+
 	return 0;
+
+}
+
+int maiorNota(struct registro *paluno, int quantidade) {
+
+	int i;
+	int maiorNota = 0;
+	int maiorIndice = 0;
+
+	for ( i = 0; i < quantidade; i ++ ) {
+
+		if ( paluno[i].nota > maiorNota ) {
+
+			maiorNota = paluno[i].nota;
+			maiorIndice = i;
+
+		}
+
+	}
+
+	return maiorIndice;
 
 }
