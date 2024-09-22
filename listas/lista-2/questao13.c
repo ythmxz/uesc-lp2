@@ -15,7 +15,48 @@ imprimir os detalhes.
 
 int main() {
 
+	int i;
+	int quantidade;
 
+	struct biblioteca {
+
+		char titulo[31];
+		char autor[31];
+		int ano;
+
+	};
+
+	printf("\nDigite a quantidade de livros: ");
+	scanf("%d", &quantidade);
+
+	struct biblioteca livro[quantidade];
+
+	for ( i = 0; i < quantidade; i++ ) {
+
+		printf("\nTítulo: ");
+		scanf(" %30[^\n]%*c", livro[i].titulo);
+
+		printf("Autor: ");
+		scanf(" %30[^\n]%*c", livro[i].autor);
+
+		printf("Ano: ");
+		scanf("%d", &livro[i].ano);
+
+	}
+
+	printf("\nEstes são os livros:\n");
+
+	for ( i = 0; i < quantidade; i++ ) {
+
+		printf("\nLivro %d\n", (i + 1));
+
+		printf("\nTítulo: %s", livro[i].titulo);
+		printf("\nAutor: %s", livro[i].autor);
+		printf("\nAno: %d", livro[i].ano);
+
+		printf("\n");
+
+	}
 
 	return 0;
 
