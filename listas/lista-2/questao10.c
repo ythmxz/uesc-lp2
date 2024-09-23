@@ -4,8 +4,9 @@ Lista I - Questão 10
 */
 
 /*
-Escreva um programa que simule um sistema simples de gerenciamento de estoque usando uma
-matriz de estruturas e ponteiros, com funções para adicionar, remover e atualizar itens.
+Escreva um programa que simule um sistema simples de gerenciamento de
+estoque usando uma matriz de estruturas e ponteiros, com funções para
+adicionar, remover e atualizar itens.
 
 Dica: use uma matriz de structs para armazenar itens de inventário e implementar
 funções para manipular o inventário.
@@ -24,15 +25,16 @@ funções para manipular o inventário.
 	};
 
 void adicionar(struct estoque *pitem, int quantidade, int novaQuantidade);
-void remover(struct estoque *pitem, int quantidade, int novaQuantidade);
-void atualizar(struct estoque *pitem, int quantidade, int novaQuantidade);
+void remover(struct estoque *pitem, int quantidade, int removido);
+void atualizar(struct estoque *pitem, int quantidade
+				, int *pcodigoItem, int atualizado);
 
 int main() {
 
 	int i;
 	int acao;
 	int quantidade, novaQuantidade;
-	int removido;
+	int removido, atualizado;
 
 	struct estoque item[tamanho];
 
@@ -122,9 +124,11 @@ ACAO_REMOVER:
 ACAO_ATUALIZAR:
 
 	printf("\nDigite a quantidade de itens que deseja atualizar: ");
-	scanf("%d", &novaQuantidade);
+	scanf("%d", &atualizado);
 
-	atualizar(item, quantidade, novaQuantidade);
+	int codigoItem[atualizado];
+
+	atualizar(item, quantidade, codigoItem, atualizado);
 
 	goto MENU;
 
@@ -186,12 +190,26 @@ void adicionar(struct estoque *pitem, int quantidade, int novaQuantidade) {
 
 void remover(struct estoque *pitem, int quantidade, int removido) {
 
-	int i;
+	int i, j;
 	int temp;
 
 	for ( i = 0; i < quantidade; i++ ) {
 
+		if ( pitem[i].codigo == removido ) {
 
+			for ( j = i; j < (quantidade - 1); j++ ) {
+
+				temp = pitem[j].codigo;
+				pitem[j] = pitem[j + 1];
+				pitem[j].codigo = temp;
+
+			}
+
+			*pitem--;
+
+			break;
+
+		}
 
 	}
 
@@ -211,8 +229,63 @@ void remover(struct estoque *pitem, int quantidade, int removido) {
 
 }
 
-void atualizar(struct estoque *pitem, int quantidade, int novaQuantidade) {
+void atualizar(struct estoque *pitem, int quantidade
+				, int *pcodigoItem, int atualizado) {
 
+	int i, j;
 
+	for ( i = 0; i < atualizado; i++ ) {
+
+		for ( j = 0; j < quantidade; j++ ) {
+
+			if ( pitem[j].codigo == pcodigoItem[i] ) {
+
+				printf("\nItem %d\n", (i + 1));
+
+				printf("\nNome: %s", pitem[i].nome);
+				printf("\nCódigo: %02d", (i + 1));
+				printf("\nPreço: R$%.2lf\n", pitem[i].preco);
+
+				printf("\nAtualize as informações:\n");
+
+				printf("\nItem %d\n", (i + 1));
+
+				printf("\nNome: ");
+				scanf(" %30[^\n]%*c", pitem[i].nome);
+
+				printf("Preço: R$");
+				scanf("%lf", &pitem[i].preco);
+
+				while ( pitem[i].preco < 0 ) {
+
+					printf("\nPreço inválido!\n");
+					printf("\nPreço: R$");
+					scanf("%lf", &pitem[i].preco);
+
+				}
+
+				printf("\n");
+
+				break;
+
+			}
+
+		}
+
+	}
+
+	printf("\nEste é o seu estoque:\n");
+
+	for ( i = 0; i < quantidade; i++ ) {
+
+		printf("\nItem %d\n", (i + 1));
+
+		printf("\nNome: %s", pitem[i].nome);
+		printf("\nCódigo: %02d", (i + 1));
+		printf("\nPreço: R$%.2lf", pitem[i].preco);
+
+		printf("\n");
+
+	}
 
 }
