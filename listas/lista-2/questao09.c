@@ -100,13 +100,13 @@ int main() {
 void soma(int *pmatrizA, int *pmatrizB, int *pmatrizC
 		, int linhasMatriz, int colunasMatriz) {
 
-			int i, j;
+	int i, j;
 
-			for ( i = 0; i < linhasMatriz; i++ ) {
+	for ( i = 0; i < linhasMatriz; i++ ) {
 
-				for ( j = 0; j < colunasMatriz; j++ )
-					*(pmatrizC + i * colunasMatriz + j) = (*(pmatrizA + i * colunasMatriz + j) + *(pmatrizB + i * colunasMatriz + j));
+		for ( j = 0; j < colunasMatriz; j++ )
+			*(pmatrizC + i * colunasMatriz + j) = (*(pmatrizA + i * colunasMatriz + j) + *(pmatrizB + i * colunasMatriz + j));
 
-			}
+	}
 
-		}
+}
