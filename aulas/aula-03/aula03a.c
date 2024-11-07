@@ -5,7 +5,7 @@ Aula 03 - Recursividade
 
 #include <stdio.h>
 
-int fat(int valor);
+unsigned long long int fat(int valor);
 
 int main() {
 
@@ -14,13 +14,13 @@ int main() {
 	printf("\nInsira um valor: ");
 	scanf("%d", &valor);
 
-	printf("\n%d! = %d\n", valor, fat(valor));
+	printf("\n%d! = %lld\n", valor, fat(valor));
 
 	return 0;
 
 }
 
-int fat(int valor) {
+unsigned long long int fat(int valor) {
 
 	if ( valor == 0 )
 		return 1;
